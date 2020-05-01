@@ -1,6 +1,7 @@
 /**
  * You need to change "arrLink" variable for circle list
  * then enter this script in DevTools's console when you open circle page like https://webcatalog.circle.ms/Circle/15130724
+ * Notes that url may become webcatalog-free.circle.ms if you get links via webcatalog-free's console.
  */
 
 //WebCatalog circle link list
