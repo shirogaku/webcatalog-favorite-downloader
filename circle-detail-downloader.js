@@ -5,7 +5,7 @@
  */
 
 //WebCatalog circle link list
-var arrLink = ['https://webcatalog.circle.ms/Circle/15130724'];
+const arrLink = ['https://webcatalog.circle.ms/Circle/15130724'];
 
 //Query selector list
 const strQueryCircleName = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(1) > td:nth-child(2) > a:nth-child(1)';
@@ -16,30 +16,30 @@ const strQueryECLink = 'div > a';
 // Iterate link list
 for(const strLink of arrLink) {
     //Fetch Data
-    var objResponse = await fetch(strLink);
+    let objResponse = await fetch(strLink);
     //Check Reponse
     if(objResponse.ok) {
         //For save link as object
-        var objLink = new Object();
+        let objLink = new Object();
 
         //Parse DOM
-        var domParser = new DOMParser();
-        var objParsedDOC = domParser.parseFromString(await objResponse.text(), 'text/html');
+        let domParser = new DOMParser();
+        let objParsedDOC = domParser.parseFromString(await objResponse.text(), 'text/html');
 
         //Circle name
-        var strCircleName = objParsedDOC.querySelector(strQueryCircleName).innerText.trim();
+        let strCircleName = objParsedDOC.querySelector(strQueryCircleName).innerText.trim();
 
         //Writer name
-        var strWriterName = objParsedDOC.querySelector(strQueryWriterName).innerText.trim();
+        let strWriterName = objParsedDOC.querySelector(strQueryWriterName).innerText.trim();
 
         //Online shop list
-        var arrECList = objParsedDOC.querySelectorAll(strQueryECList);
+        let arrECList = objParsedDOC.querySelectorAll(strQueryECList);
         //Check does it has online shop link
         if(arrECList.length > 0) {
             //Iterate shop link
             for(const eleEC of arrECList) {
                 //Online shop link query
-                var strECLink = eleEC.querySelector(strQueryECLink).href;
+                let strECLink = eleEC.querySelector(strQueryECLink).href;
                 //Filtering link
                 if(strECLink.startsWith('https://ec.toranoana.jp')){
                     //Tora no ana
