@@ -9,6 +9,7 @@ const arrLink = ['https://webcatalog.circle.ms/Circle/15130724'];
 
 //Query selector list
 const strQueryCircleName = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(1) > td:nth-child(2) > a:nth-child(1)';
+const strQueryCircleDayPos = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(1) > td:nth-child(4)';
 const strQueryWriterName = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(2) > td:nth-child(2)';
 const strQueryECList = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(4) > td > div > ul > li';
 const strQueryECLink = 'div > a';
@@ -28,6 +29,9 @@ for(const strLink of arrLink) {
 
         //Circle name
         let strCircleName = objParsedDOC.querySelector(strQueryCircleName).innerText.trim();
+		
+		//Circle position and day
+		let strCircleDayPos = objParsedDOC.querySelector(strQueryCircleDayPos).innerText.trim();
 
         //Writer name
         let strWriterName = objParsedDOC.querySelector(strQueryWriterName).innerText.trim();
@@ -60,6 +64,6 @@ for(const strLink of arrLink) {
             }
         }
         //Print
-        console.info(`${strCircleName}\t${strWriterName}\t${strLink}\t${objLink.toranoana === undefined ? '' : objLink.toranoana}\t${objLink.melonbooks === undefined ? '' : objLink.melonbooks}\t${objLink.dlsite === undefined ? '' : objLink.dlsite}\t${objLink.boothpm === undefined ? '' : objLink.boothpm}\t${objLink.fanza === undefined ? '' : objLink.fanza}`);
+        console.info(`${strCircleName}\t${strCircleDayPos}\t${strWriterName}\t${strLink}\t${objLink.toranoana === undefined ? '' : objLink.toranoana}\t${objLink.melonbooks === undefined ? '' : objLink.melonbooks}\t${objLink.dlsite === undefined ? '' : objLink.dlsite}\t${objLink.boothpm === undefined ? '' : objLink.boothpm}\t${objLink.fanza === undefined ? '' : objLink.fanza}`);
     }
 }
