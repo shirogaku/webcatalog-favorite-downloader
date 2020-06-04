@@ -11,6 +11,9 @@ const arrLink = ['https://webcatalog.circle.ms/Circle/15130724'];
 const strQueryCircleName = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(1) > td:nth-child(2) > a:nth-child(1)';
 const strQueryCircleDayPos = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(1) > td:nth-child(4)';
 const strQueryWriterName = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(2) > td:nth-child(2)';
+
+const strQueryTwitter = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(3) > td > div > ul > li:nth-child(5) > a';
+
 const strQueryECList = '#mainSection > div.m-media.m-circletable > div.m-media__body.md-circleinfo > div.item > table > tbody > tr:nth-child(4) > td > div > ul > li';
 const strQueryECLink = 'div > a';
 
@@ -35,6 +38,9 @@ for(const strLink of arrLink) {
 
         //Writer name
         let strWriterName = objParsedDOC.querySelector(strQueryWriterName).innerText.trim();
+
+		//Twitter link
+        let strTwitterLink = objParsedDOC.querySelector(strQueryTwitter).href;
 
         //Online shop list
         let arrECList = objParsedDOC.querySelectorAll(strQueryECList);
@@ -64,6 +70,6 @@ for(const strLink of arrLink) {
             }
         }
         //Print
-        console.info(`${strCircleName}\t${strCircleDayPos}\t${strWriterName}\t${strLink}\t${objLink.toranoana === undefined ? '' : objLink.toranoana}\t${objLink.melonbooks === undefined ? '' : objLink.melonbooks}\t${objLink.dlsite === undefined ? '' : objLink.dlsite}\t${objLink.boothpm === undefined ? '' : objLink.boothpm}\t${objLink.fanza === undefined ? '' : objLink.fanza}`);
+        console.info(`${strCircleName}\t${strCircleDayPos}\t${strWriterName}\t${strTwitterLink}\t${strLink}\t${objLink.toranoana === undefined ? '' : objLink.toranoana}\t${objLink.melonbooks === undefined ? '' : objLink.melonbooks}\t${objLink.dlsite === undefined ? '' : objLink.dlsite}\t${objLink.boothpm === undefined ? '' : objLink.boothpm}\t${objLink.fanza === undefined ? '' : objLink.fanza}`);
     }
 }
